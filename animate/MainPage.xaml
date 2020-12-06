@@ -1,0 +1,29 @@
+﻿<Page
+    x:Class="animate.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:animate"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+            <Rectangle x:Name="AnimRect" Tapped="Rect_flash" HorizontalAlignment="Left" Height="155" Margin="67,118,0,0" Stroke="Black" Fill="DeepSkyBlue" VerticalAlignment="Top" Width="380" Opacity="0.4"/>
+            <!--<Button Content="Animate" Click="Btn_Clik" Margin="194,210,0,0" VerticalAlignment="Bottom" Height="52" Width="128" FontSize="20" HorizontalAlignment="Center"/>-->
+            <Grid.Resources>
+                <!--animation-->
+                <Storyboard x:Name="myStory">
+                    <DoubleAnimation Storyboard.TargetName="AnimRect" Storyboard.TargetProperty="Opacity" From="0.0" To="1.0" Duration="0:0:2" AutoReverse="True" RepeatBehavior="Forever"/>
+                </Storyboard>
+            </Grid.Resources>
+        </Grid>
+        <StackPanel x:Name="LayoutRootR" Margin="944,118,76,716" BorderThickness="5" BorderBrush="Red">
+            <Rectangle Height="145" Stroke="Black" Fill="Red" Width="390" Tapped="Rect_tapped" Margin="0,10,0,0"/>
+        </StackPanel>
+        <StackPanel x:Name="LayoutRoot" Margin="10,430,10,140" BorderThickness="5" BorderBrush="White">
+            <Button Click="Create_Run_Anim" Content="Animation" Height="78" Width="218" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        </StackPanel>
+    </Grid>
+</Page>
